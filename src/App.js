@@ -8,6 +8,8 @@ import { Login } from './component/LoginForm';
 
 
 export function App() {
+	window.alert("Use my user id and password ->Keshav Mandal Chat123@")
+
 	if(!localStorage.getItem("username")) return <Login/>
 	return (
 		<ChatEngine
@@ -16,8 +18,7 @@ export function App() {
 			userSecret={localStorage.getItem("password")}
 			projectID='c8216b7b-ad64-4289-82a2-c1aed23818e7'
             renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
-			
-			 onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
+			onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
 		/>
 	);
 }
