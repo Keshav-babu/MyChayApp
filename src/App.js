@@ -3,16 +3,17 @@ import {ChatEngine} from "react-chat-engine";
 import "./App.css";
 import { ChatFeed } from './component/ChatFeed';
 import { Login } from './component/LoginForm';
+import { Signin } from './component/SigninForm';
 
 
 
 
 export function App() {
-	window.alert("Use my user id and password ->Keshav Mandal Chat123@")
-
-	if(!localStorage.getItem("username")) return <Login/>
+	if(!localStorage.getItem("username")) return <div  style={{border:"5px solid green"}} className=""><Login/> <Signin/></div>
 	return (
-		<ChatEngine
+		<>
+			
+			<ChatEngine
 			height='100vh'
 			userName={localStorage.getItem("username")}
 			userSecret={localStorage.getItem("password")}
@@ -20,6 +21,8 @@ export function App() {
             renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
 			onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
 		/>
+		</>
+		
 	);
 }
 
