@@ -33,8 +33,8 @@ export const Login=()=>{
                 <div className="form">
                     <h1 className="title">Login to Chat Application</h1>
                     <form onSubmit={handleSubmit}>
-                            <input type="text" value={userName} onChange={(e)=>setUsername(e.target.value)} className="input" placeholder="Inter user Name" required/>
-                            <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="input" placeholder="Inter Password" required/>
+                            <input type="text" value={userName} onChange={(e)=>setUsername(e.target.value)} className="input" placeholder="Enter user Name" required/>
+                            <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="input" placeholder="Enter Password" required/>
                             <div >
                                 <button type="submit" className="button" >
                                     <span>Start Chating</span>

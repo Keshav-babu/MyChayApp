@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const private_key="5c161fa8-30c1-41c1-84d1-88a64e87277f"
 var axios = require('axios');
@@ -6,6 +7,7 @@ var axios = require('axios');
 export const Signin=()=>{
     const [name,setName]=useState('')
     const [secret,setSecret]=useState('')
+
 
 
     const handleSubmit=()=>{
@@ -18,7 +20,7 @@ export const Signin=()=>{
         };
         var config = {
 	        method: 'post',
-	        url: 'https://api.chatengine.io/users/',
+	        url: 'htps://api.chatengine.io/users/',
 	        headers: {
 		    'PRIVATE-KEY':private_key
 	        },
@@ -33,6 +35,7 @@ export const Signin=()=>{
             
         } catch (error) {
             console.log("Error",error);
+            
         }
         console.log(name,secret)
     }
@@ -48,15 +51,18 @@ export const Signin=()=>{
                     <form onSubmit={handleSubmit}>
                             <input type="text" placeholder='Username' value={name} className="input" onChange={(e)=>setName(e.target.value)} />
                             <input type="password" placeholder='password' className="input" value={secret} onChange={(e)=>setSecret(e.target.value)}/>
-                            <input type="text" placeholder='Email id' value="" className="input" onChange={()=>{}} />
+                            <input type='email' placeholder='Email id' className="input" onChange={()=>{}} />
                             <div >
                                 <button type="submit" className="input" >
-                                    <span>SignUp</span>
+                                    {/* <span>SignUp</span> */}
+                                    <Link style={{textDecoration:'none'}} to="/login"> SignUp</Link>
                                 </button>
+                                
                             </div>
+                            Already have an Account? <Link style={{color:"white"}} to="/login">Login</Link>
                     </form>
-                    {/* <h1>{error}</h1> */}
-                    
+                    {/* <h3>{error}</h3>
+                     */}
                 </div>
             </div>
         </div>
